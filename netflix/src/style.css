@@ -1,0 +1,47 @@
+.App {
+  height: auto;
+  background-color: black;
+}
+
+.logo {
+  height: 50px;
+}
+
+.nav-background {
+  background-color: black;
+}
+
+h3 {
+  color: white;
+}
+
+h5 {
+  color: white;
+}
+
+.movie-tile {
+  height: 400px;
+}
+
+.movie-tile:hover {
+  opacity: 1;
+  transition: 0.3s;
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.carousel-indicators li {
+  visibility: hidden;
+}
+
+.movie-tiles {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
