@@ -56,7 +56,7 @@ class MovieRow extends Component {
       <>
         <Container fluid>
           <div className="movie-gallery mt-5">
-            <h5>{this.props.movieCategory}</h5>
+            <h3>{this.props.movieCategory}</h3>
             <Carousel controls={false}>
               <Carousel.Item className="d-flex">
                 <div className="movie-tiles mr-5">

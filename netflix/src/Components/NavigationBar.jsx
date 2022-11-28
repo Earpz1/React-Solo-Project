@@ -1,4 +1,13 @@
-import { Nav, NavDropdown, Navbar, Container, Row } from 'react-bootstrap'
+import {
+  Nav,
+  NavDropdown,
+  Navbar,
+  Container,
+  Row,
+  Form,
+  FormControl,
+  Button,
+} from 'react-bootstrap'
 import logo from '../img/netflix_logo.png'
 
 function NavigationBar() {
@@ -20,6 +29,15 @@ function NavigationBar() {
             <Nav.Link href="#pricing">Recently Added</Nav.Link>
             <Nav.Link href="#pricing">My List</Nav.Link>
           </Nav>
+          <Form className="d-flex">
+            <FormControl
+              type="search"
+              placeholder="Search"
+              className="mr-2"
+              aria-label="Search"
+            />
+            <Button variant="danger">Search</Button>
+          </Form>
         </Navbar.Collapse>
       </Navbar>
     </>
