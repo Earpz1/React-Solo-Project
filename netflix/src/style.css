@@ -45,3 +45,17 @@ h5 {
   justify-content: center;
   background-color: black;
 }
+
+.nav-link a {
+  text-decoration: none;
+  color: gray;
+}
+
+.moviePage {
+  height: auto;
+}
+
+.movie-image {
+  width: 500px;
+  height: 700px;
+}

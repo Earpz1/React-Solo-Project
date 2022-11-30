@@ -9,8 +9,30 @@ import {
   Button,
 } from 'react-bootstrap'
 import logo from '../img/netflix_logo.png'
+import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
+import { useState } from 'react'
+import { useEffect } from 'react'
 
 function NavigationBar() {
+  const [page, setpage] = useState('Search...')
+  const location = useLocation()
+
+  const setPageName = () => {
+    if (location.pathname === '/tvShows') {
+      setpage('Search in TV Shows')
+    } else if (location.pathname === '/movies') {
+      setpage('Search in Movies')
+    } else {
+      setpage('Search...')
+    }
+  }
+
+  useEffect(() => {
+    setPageName()
+  })
+
+  console.log(location)
   return (
     <>
       <Navbar
@@ -23,16 +45,20 @@ function NavigationBar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="#features">Home</Nav.Link>
-            <Nav.Link href="#pricing">TV Shows</Nav.Link>
-            <Nav.Link href="#pricing">Movies</Nav.Link>
-            <Nav.Link href="#pricing">Recently Added</Nav.Link>
-            <Nav.Link href="#pricing">My List</Nav.Link>
+            <div className="nav-link">
+              <Link to="/">Home</Link>
+            </div>
+            <div className="nav-link">
+              <Link to="/tvShows">TV Shows</Link>
+            </div>
+            <div className="nav-link">
+              <Link to="/movies">Movies</Link>
+            </div>
           </Nav>
           <Form className="d-flex">
             <FormControl
               type="search"
-              placeholder="Search"
+              placeholder={page}
               className="mr-2"
               aria-label="Search"
             />
