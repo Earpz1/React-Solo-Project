@@ -12,7 +12,7 @@ const MoviePage = () => {
   const fetchMovie = async () => {
     try {
       let response = await fetch(
-        'https://omdbapi.com/?apikey=a7a3e8e8&i=' + params.imdbID,
+        'http://localhost:3001/medias/' + params.imdbID,
       )
 
       if (response.ok) {
@@ -46,7 +46,7 @@ const MoviePage = () => {
                 <h2>
                   {movie.Title} - {movie.Year}{' '}
                 </h2>
-                <Link to="/movies"> Return to List...</Link>
+                <Link to="/"> Return to List...</Link>
               </ListGroup.Item>
               <ListGroup.Item>
                 <b>Released:</b> {movie.Released}
@@ -57,7 +57,12 @@ const MoviePage = () => {
               <ListGroup.Item>
                 <b>Actors:</b> {movie.Actors}
               </ListGroup.Item>
-              <ListGroup.Item className="pt-5">{movie.Plot}</ListGroup.Item>
+              <ListGroup.Item>
+                <a href={`http://localhost:3001/medias/${movie.imdbID}/pdf`}>
+                  Export as PDF
+                </a>
+              </ListGroup.Item>
+              <ListGroup.Item className="pt-5"></ListGroup.Item>
             </ListGroup>
           </Col>
           <Col lg={2}>

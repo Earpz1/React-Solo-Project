@@ -16,13 +16,13 @@ const MovieRow = (props) => {
   const fetchMovies = async () => {
     try {
       let response = await fetch(
-        'https://omdbapi.com/?apikey=a7a3e8e8&s=' + category + '&' + type,
+        'http://localhost:3001/medias/category/' + category,
       )
 
       if (response.ok) {
         let movieList = await response.json()
 
-        setmovies(movieList.Search)
+        setmovies(movieList)
         setisLoading(false)
       } else {
         setisError(true)
@@ -33,7 +33,7 @@ const MovieRow = (props) => {
 
   useEffect(() => {
     fetchMovies()
-  })
+  }, [])
 
   return (
     <>
@@ -55,7 +55,7 @@ const MovieRow = (props) => {
                 )}
                 {movies.slice(0, 6).map((e) => (
                   <div key={e.imdbID}>
-                    <Link to={e.imdbID}>
+                    <Link to={`${e.imdbID}`}>
                       <img
                         src={e.Poster}
                         className="movie-tile"
